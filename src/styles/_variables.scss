@@ -1,0 +1,6 @@
+@use 'sass:color';
+
+$color-brand: #132745;
+$color-button: #d7dbdd;
+$color-button-hover: color.adjust($color-button, $lightness: -6%);
+$transition-base: 200ms ease-in-out;
