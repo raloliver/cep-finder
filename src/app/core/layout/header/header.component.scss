@@ -1,0 +1,21 @@
+@use 'variables' as *;
+
+header {
+  min-height: 64px;
+  background-color: $color-brand;
+}
+
+header .logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+header .brand {
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

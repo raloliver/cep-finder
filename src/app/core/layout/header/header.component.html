@@ -1,1 +1,13 @@
-<p>header works!</p>
+<header class="d-flex align-items-center py-2 bg-primary text-white shadow">
+  <div class="container d-flex align-items-center justify-content-between gap-3">
+    <a class="brand d-inline-flex align-items-center p-1 rounded" [routerLink]="homeLink">
+      <img
+        class="logo"
+        src="images/logo.svg"
+        width="130"
+        height="40"
+        [alt]="'header.logo' | translate"
+      />
+    </a>
+  </div>
+</header>

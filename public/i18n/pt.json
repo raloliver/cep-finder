@@ -3,8 +3,14 @@
     "title": "CEP Finder"
   },
   "home": {
-    "welcome": "Bem-vindo(a)",
-    "subtitle": "Israel Oliveira em 08/10/2026",
+    "welcome": "Bem-vindo(a) ao teste de frontend",
+    "subtitle": "Teste realizado por Israel Oliveira em 08/10/2026",
     "cta": "Buscar endereços"
+  },
+  "header": {
+    "logo": "SCCON Geospatial"
+  },
+  "footer": {
+    "text": "CEP Finder · Consulta de endereços com dados do ViaCEP."
   }
 }
