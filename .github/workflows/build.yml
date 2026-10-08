@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Match this to your local development Node version
+          node-version: '24' # Match this to your local development Node version
           cache: 'npm' # Automatically caches node_modules for faster subsequent builds
 
       # Step 3: Install project dependencies
