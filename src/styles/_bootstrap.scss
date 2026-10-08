@@ -2,7 +2,7 @@
 
 $primary: tokens.$color-brand;
 $font-family-sans-serif:
-  'Roboto',
+  tokens.$font-family,
   system-ui,
   -apple-system,
   'Segoe UI',
