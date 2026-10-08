@@ -1,4 +1,7 @@
 {
+  "app": {
+    "title": "CEP Finder"
+  },
   "home": {
     "welcome": "Bem-vindo(a)",
     "subtitle": "Israel Oliveira em 08/10/2026",
