@@ -8,7 +8,15 @@
     "cta": "Buscar endereços"
   },
   "header": {
-    "logo": "SCCON Geospatial"
+    "logo": "SCCON Geospatial",
+    "home": "Home",
+    "addresses": "Endereços",
+    "searchAddresses": "Buscar Endereços"
+  },
+  "addresses": {
+    "search": {
+      "title": "Busca de Endereços"
+    }
   },
   "footer": {
     "text": "CEP Finder · Consulta de endereços com dados do ViaCEP."
