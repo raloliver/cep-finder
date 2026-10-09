@@ -1,0 +1,41 @@
+@if (variant() === 'icon') {
+  <button
+    matIconButton
+    class="bg-body-secondary"
+    [type]="type()"
+    [disabled]="disabled()"
+    [attr.aria-label]="ariaLabel()"
+    [attr.title]="ariaLabel()"
+  >
+    <app-icon class="text-primary" [name]="icon() ?? ''" />
+  </button>
+} @else if (link()) {
+  <a
+    matButton="filled"
+    class="bg-body-secondary text-primary fw-bold"
+    [routerLink]="link()"
+    [attr.aria-label]="ariaLabel()"
+  >
+    <ng-container *ngTemplateOutlet="buttonContent" />
+  </a>
+} @else {
+  <button
+    matButton="filled"
+    class="bg-body-secondary text-primary fw-bold"
+    [type]="type()"
+    [disabled]="disabled()"
+    [attr.aria-label]="ariaLabel()"
+  >
+    <ng-container *ngTemplateOutlet="buttonContent" />
+  </button>
+}
+
+<ng-template #content><ng-content /></ng-template>
+<ng-template #buttonContent>
+  <span class="d-flex align-items-center gap-1 fw-bold">
+    @if (icon()) {
+      <app-icon matButtonIcon [name]="icon()!" />
+    }
+    <ng-container *ngTemplateOutlet="content" />
+  </span>
+</ng-template>

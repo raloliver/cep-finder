@@ -1,0 +1,68 @@
+<nav class="nav-menu" [attr.aria-label]="ariaLabel()">
+  <ul class="list-unstyled d-none d-md-flex align-items-center gap-2 m-0 p-0">
+    @for (item of items(); track item.link) {
+      <li>
+        @if (item.children?.length) {
+          <a
+            matButton
+            class="text-white"
+            [class.active]="isActive(item)"
+            [matMenuTriggerFor]="submenu"
+          >
+            {{ item.labelKey | translate }}
+            <app-icon matButtonIcon iconPositionEnd name="expand_more" />
+          </a>
+          <mat-menu #submenu="matMenu">
+            @for (child of item.children; track child.link) {
+              <a
+                mat-menu-item
+                [routerLink]="child.link"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+              >
+                <span class="d-flex align-items-center">
+                  <app-icon [name]="child.icon" />
+                  {{ child.labelKey | translate }}
+                </span>
+              </a>
+            }
+          </mat-menu>
+        } @else {
+          <a
+            matButton
+            class="text-white"
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+          >
+            {{ item.labelKey | translate }}
+          </a>
+        }
+      </li>
+    }
+  </ul>
+
+  <a
+    matIconButton
+    class="d-md-none text-white"
+    [attr.aria-label]="openMenuLabel()"
+    [matMenuTriggerFor]="mobileMenu"
+  >
+    <app-icon name="menu" />
+  </a>
+  <mat-menu #mobileMenu="matMenu">
+    @for (item of flatItems(); track item.link) {
+      <a
+        mat-menu-item
+        [routerLink]="item.link"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <span class="d-flex align-items-center">
+          <app-icon [name]="item.icon" />
+          {{ item.labelKey | translate }}
+        </span>
+      </a>
+    }
+  </mat-menu>
+</nav>
