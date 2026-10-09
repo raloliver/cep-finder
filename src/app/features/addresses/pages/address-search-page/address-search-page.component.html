@@ -1,1 +1,23 @@
-<p>address-search-page works!</p>
+<article class="container py-4">
+  <header class="mb-4 pb-2 border-bottom">
+    <h1 class="text-primary h4 fst-italic fw-normal mb-0">
+      {{ 'addresses.search.title' | translate }}
+    </h1>
+  </header>
+
+  <section class="mb-4 p-3 p-sm-4 bg-white border rounded-3 shadow-sm">
+    <h2 class="visually-hidden">
+      {{ 'addresses.search.formLabel' | translate }}
+    </h2>
+    <app-button class="flex-grow-1" icon="search" (click)="search('04090000')">
+      {{ 'addresses.search.submit' | translate }}
+    </app-button>
+  </section>
+
+  <section class="p-3 p-sm-4 bg-white border rounded-3 shadow-sm">
+    <h2 class="visually-hidden">
+      {{ 'addresses.list.caption' | translate }}
+    </h2>
+    {{ address | json }}
+  </section>
+</article>

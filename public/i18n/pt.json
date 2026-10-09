@@ -15,7 +15,10 @@
   },
   "addresses": {
     "search": {
-      "title": "Busca de Endereços"
+      "title": "Busca de Endereços",
+      "formLabel": "Formulário de busca de endereço por CEP",
+      "notFound": "CEP não encontrado.",
+      "submit": "Buscar"
     }
   },
   "footer": {
