@@ -1,0 +1,13 @@
+export interface ViaCepResponse {
+  readonly cep: string;
+  readonly logradouro: string;
+  readonly complemento: string;
+  readonly bairro: string;
+  readonly localidade: string;
+  readonly uf: string;
+  readonly erro?: boolean | string;
+}
+
+export interface ViaCepSearch {
+  cep: string;
+}
