@@ -20,12 +20,18 @@
     </div>
   </div>
 
-  <output class="d-block text-center mt-3" [attr.for]="inputId"
-    ><span
-      class="search-form__result-card d-inline-flex flex-wrap justify-content-center gap-2 px-3 py-2 rounded-end bg-body-tertiary border-start border-4 border-primary"
-    >
-      <strong class="text-primary">CEP</strong>
-      <span>Endereço</span>
-    </span></output
-  >
+  @if (address()) {
+    <output class="d-block text-center mt-3" [attr.for]="inputId">
+      <span
+        class="search-form__result-card d-inline-flex flex-wrap justify-content-center gap-2 px-3 py-2 rounded-end bg-body-tertiary border-start border-4 border-primary"
+      >
+        <strong class="text-primary">{{ address()?.cep }}</strong>
+        <span>
+          {{ address()?.logradouro }}, {{ address()?.bairro }} - {{ address()?.localidade }}/{{
+            address()?.uf
+          }}
+        </span>
+      </span>
+    </output>
+  }
 </form>

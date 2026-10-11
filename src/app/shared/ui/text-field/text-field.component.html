@@ -1,9 +1,4 @@
-<mat-form-field
-  class="w-100"
-  appearance="outline"
-  subscriptSizing="dynamic"
-  hideRequiredMarker
->
+<mat-form-field class="w-100" appearance="outline" subscriptSizing="dynamic" hideRequiredMarker>
   <mat-label>{{ label() }}</mat-label>
   <input
     matInput
@@ -13,7 +8,7 @@
     [formField]="field()"
     [placeholder]="placeholder()"
   />
-  <mat-error>Add validators</mat-error>
+  <mat-error>{{ field()().errors()[0]?.message ?? '' | translate }}</mat-error>
   @if (hint()) {
     <mat-hint>{{ hint() }}</mat-hint>
   }

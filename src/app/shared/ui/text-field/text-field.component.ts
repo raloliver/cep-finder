@@ -2,9 +2,10 @@ import { Component, input } from '@angular/core';
 import { FieldTree, FormField } from '@angular/forms/signals';
 import { MatInput } from '@angular/material/input';
 import { MatError, MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  imports: [FormField, MatFormField, MatLabel, MatInput, MatHint, MatError],
+  imports: [FormField, MatFormField, MatLabel, MatInput, MatHint, MatError, TranslatePipe],
   selector: 'app-text-field',
   styleUrl: './text-field.component.scss',
   templateUrl: './text-field.component.html',
