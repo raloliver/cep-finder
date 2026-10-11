@@ -1,4 +1,4 @@
-export interface ViaCepAddressResponse {
+export interface ViaCepResponse {
   readonly cep: string;
   readonly logradouro: string;
   readonly complemento: string;
@@ -6,4 +6,8 @@ export interface ViaCepAddressResponse {
   readonly localidade: string;
   readonly uf: string;
   readonly erro?: boolean | string;
+}
+
+export interface ViaCepSearch {
+  cep: string;
 }

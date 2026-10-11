@@ -1,0 +1,31 @@
+<form
+  [formRoot]="searchForm"
+  [attr.aria-label]="'addresses.search.formLabel' | translate"
+  role="search"
+>
+  <div class="row g-3 align-items-start justify-content-center">
+    <div class="col-12 col-md-7 col-lg-6">
+      <app-text-field
+        [field]="searchForm.cep"
+        [inputId]="inputId"
+        [label]="'addresses.search.label' | translate"
+        [placeholder]="'addresses.search.placeholder' | translate"
+        [hint]="'addresses.search.hint' | translate"
+      />
+    </div>
+    <div class="col-12 col-md-auto d-flex gap-2 search-form__actions pt-2">
+      <app-button type="submit" class="flex-grow-1" icon="search">
+        {{ 'addresses.search.submit' | translate }}
+      </app-button>
+    </div>
+  </div>
+
+  <output class="d-block text-center mt-3" [attr.for]="inputId"
+    ><span
+      class="search-form__result-card d-inline-flex flex-wrap justify-content-center gap-2 px-3 py-2 rounded-end bg-body-tertiary border-start border-4 border-primary"
+    >
+      <strong class="text-primary">CEP</strong>
+      <span>Endereço</span>
+    </span></output
+  >
+</form>
