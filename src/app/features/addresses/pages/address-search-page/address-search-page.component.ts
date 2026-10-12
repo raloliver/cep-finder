@@ -6,9 +6,10 @@ import { ViaCepResponse } from '@features/addresses/interfaces/via-cep.interface
 import { CepNotFoundError } from '@features/addresses/interfaces/via-cep.model';
 import { AddressSearchForm } from '@features/addresses/components/address-search-form/address-search-form.component';
 import { ViaCep } from '@features/addresses/services/via-cep.service';
+import { AddressList } from '@features/addresses/components/address-list/address-list.component';
 import { Notifications } from '@shared/ui/notification/notifications.service';
 @Component({
-  imports: [TranslatePipe, AddressSearchForm],
+  imports: [TranslatePipe, AddressSearchForm, AddressList],
   selector: 'app-address-search-page',
   styleUrl: './address-search-page.component.scss',
   templateUrl: './address-search-page.component.html',

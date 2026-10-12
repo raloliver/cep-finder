@@ -1,11 +1,12 @@
 export interface ViaCepResponse {
-  readonly cep: string;
-  readonly logradouro: string;
-  readonly complemento: string;
-  readonly bairro: string;
-  readonly localidade: string;
-  readonly uf: string;
-  readonly erro?: boolean | string;
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  erro?: boolean | string;
+  data?: string;
 }
 
 export interface ViaCepSearch {

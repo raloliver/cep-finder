@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 table table-striped table-hover"
+  >
+    <ng-container matColumnDef="cep">
+      <th mat-header-cell *matHeaderCellDef>{{ 'addresses.list.cep' | translate }}</th>
+      <td mat-cell *matCellDef="let row">{{ row.cep }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>{{ 'addresses.list.address' | translate }}</th>
+      <td mat-cell *matCellDef="let row">{{ row.address }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>{{ 'addresses.list.date' | translate }}</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.date | date: 'dd/MM/yyyy - HH:mm' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        @for (action of row.actions; track $index) {
+          <app-button variant="icon" [icon]="action.icon" [ariaLabel]="action.label" />
+        }
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
