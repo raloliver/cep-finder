@@ -2,7 +2,7 @@
   <table
     mat-table
     [dataSource]="addresses()"
-    class="mat-elevation-z8 table table-striped table-hover"
+    class="mat-elevation-z8 table table-striped table-hover table-borderless"
   >
     <ng-container matColumnDef="cep">
       <th mat-header-cell *matHeaderCellDef>{{ 'addresses.list.cep' | translate }}</th>
@@ -34,11 +34,12 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="bg-white"></tr>
     <tr
       mat-row
       animate.enter="fade-in"
       animate.leave="fade-out"
+      class="align-middle"
       *matRowDef="let row; columns: displayedColumns"
     ></tr>
   </table>
