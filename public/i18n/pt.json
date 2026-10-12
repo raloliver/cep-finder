@@ -26,9 +26,15 @@
         "required": "Informe um CEP.",
         "cep": "CEP inválido. Use o formato 00000-000."
       }
+    },
+    "notifications": {
+      "found": "Endereço encontrado.",
+      "notFound": "CEP não encontrado."
     }
   },
-
+  "notifications": {
+    "dismiss": "Fechar"
+  },
   "footer": {
     "text": "CEP Finder · Consulta de endereços com dados do ViaCEP."
   }

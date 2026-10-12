@@ -3,8 +3,10 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 import { ViaCepResponse } from '@features/addresses/interfaces/via-cep.interface';
+import { CepNotFoundError } from '@features/addresses/interfaces/via-cep.model';
 import { AddressSearchForm } from '@features/addresses/components/address-search-form/address-search-form.component';
 import { ViaCep } from '@features/addresses/services/via-cep.service';
+import { Notifications } from '@shared/ui/notification/notifications.service';
 @Component({
   imports: [TranslatePipe, AddressSearchForm],
   selector: 'app-address-search-page',
@@ -15,11 +17,22 @@ export class AddressSearchPage {
   protected readonly address = signal<ViaCepResponse | null>(null);
 
   private readonly viaCepService = inject(ViaCep);
+  private readonly notifications = inject(Notifications);
+
   private searchSubscription = Subscription.EMPTY;
 
   protected search(cep: string): void {
     this.searchSubscription = this.viaCepService.findByCep(cep).subscribe({
-      next: (address) => this.address.set(address),
+      next: (address) => {
+        this.address.set(address);
+        this.notifications.success('addresses.notifications.found');
+      },
+      error: (error: unknown) =>
+        this.notifications.error(
+          error instanceof CepNotFoundError
+            ? error.message
+            : 'addresses.notifications.searchFailed',
+        ),
     });
   }
 
