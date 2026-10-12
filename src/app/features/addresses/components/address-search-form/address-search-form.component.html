@@ -13,17 +13,24 @@
         [hint]="'addresses.search.hint' | translate"
       />
     </div>
-    <div class="col-12 col-md-auto d-flex gap-2 search-form__actions pt-2">
+    <div class="col-12 col-md-auto d-flex gap-2 pt-2">
       <app-button type="submit" class="flex-grow-1" icon="search">
         {{ 'addresses.search.submit' | translate }}
+      </app-button>
+      <app-button class="flex-grow-1" type="button" icon="backspace" (click)="clear()">
+        {{ 'addresses.search.clear' | translate }}
       </app-button>
     </div>
   </div>
 
-  @if (address()) {
-    <output class="d-block text-center mt-3" [attr.for]="inputId">
+  <output class="d-block text-center mt-3" [attr.for]="inputId">
+    @if (searching()) {
+      <app-loader [label]="'addresses.search.loading' | translate" />
+    } @else if (address()) {
       <span
-        class="search-form__result-card d-inline-flex flex-wrap justify-content-center gap-2 px-3 py-2 rounded-end bg-body-tertiary border-start border-4 border-primary"
+        animate.enter="fade-in"
+        animate.leave="fade-out"
+        class="d-inline-flex flex-wrap justify-content-center gap-2 px-3 py-2 rounded-end bg-body-tertiary border-start border-4 border-primary"
       >
         <strong class="text-primary">{{ address()?.cep }}</strong>
         <span>
@@ -32,6 +39,6 @@
           }}
         </span>
       </span>
-    </output>
-  }
+    }
+  </output>
 </form>

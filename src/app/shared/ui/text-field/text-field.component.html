@@ -7,6 +7,7 @@
     [id]="inputId()"
     [formField]="field()"
     [placeholder]="placeholder()"
+    (input)="mask($event)"
   />
   <mat-error>{{ field()().errors()[0]?.message ?? '' | translate }}</mat-error>
   @if (hint()) {

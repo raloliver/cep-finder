@@ -4,6 +4,8 @@ import { MatInput } from '@angular/material/input';
 import { MatError, MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { TranslatePipe } from '@ngx-translate/core';
 
+import { maskCep } from '@shared/helpers/cep.helper';
+
 @Component({
   imports: [FormField, MatFormField, MatLabel, MatInput, MatHint, MatError, TranslatePipe],
   selector: 'app-text-field',
@@ -16,4 +18,10 @@ export class TextField {
   readonly label = input.required<string>();
   readonly placeholder = input('');
   readonly hint = input('');
+
+  protected mask(event: Event): void {
+    const element = event.target as HTMLInputElement;
+    element.value = maskCep(element.value);
+    this.field()().value.set(element.value);
+  }
 }

@@ -1,4 +1,4 @@
-<article class="container py-4">
+<article class="container py-4" animate.enter="fade-in">
   <header class="mb-4 pb-2 border-bottom">
     <h1 class="text-primary h4 fst-italic fw-normal mb-0">
       {{ 'addresses.search.title' | translate }}
@@ -6,8 +6,17 @@
   </header>
 
   <section class="mb-4 p-3 p-sm-4 bg-white border rounded-3 shadow-sm">
-    <app-address-search-form [address]="address()" (searchSubmitted)="search($event)" />
+    <app-address-search-form
+      [address]="address()"
+      [searching]="searching()"
+      (searchCleared)="clear()"
+      (searchSubmitted)="search($event)"
+    />
   </section>
 
-  <section class="p-3 p-sm-4 bg-white border rounded-3 shadow-sm"></section>
+  <!-- #TODO: add data-table here with the list of search
+  <section class="p-3 p-sm-4 bg-white border rounded-3 shadow-sm">
+    
+  </section> 
+  -->
 </article>
