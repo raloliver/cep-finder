@@ -1,6 +1,6 @@
 import { maxLength, pattern, required, schema } from '@angular/forms/signals';
 import { CEP_LENGTH, CEP_PATTERN } from '@shared/helpers/cep.helper';
-import { ViaCepSearch } from './via-cep.interface';
+import { ViaCepSearch } from '@features/addresses/interfaces/via-cep.interface';
 
 export class CepNotFoundError extends Error {
   constructor(readonly cep: string) {

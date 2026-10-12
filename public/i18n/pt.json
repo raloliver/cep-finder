@@ -29,8 +29,18 @@
       }
     },
     "notifications": {
-      "found": "Endereço encontrado.",
-      "notFound": "CEP não encontrado."
+      "found": "Endereço encontrado e adicionado à lista.",
+      "notFound": "CEP não encontrado.",
+      "removed": "Endereço removido."
+    },
+    "list": {
+      "cep": "CEP",
+      "address": "Endereço",
+      "date": "Data",
+      "actions": "Ações",
+      "remove": "Remover busca",
+      "loading": "Carregando buscas...",
+      "empty": "Nenhuma busca realizada até o momento."
     }
   },
   "notifications": {

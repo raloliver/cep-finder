@@ -1,5 +1,5 @@
 import { NavItem } from '@shared/ui/nav-menu/nav-menu.interface';
-import { AppLink } from './app.path';
+import { AppLink } from '@core/navigation/app.path';
 
 export const APP_NAVIGATION: readonly NavItem[] = [
   { labelKey: 'header.home', link: AppLink.home, icon: 'home' },
