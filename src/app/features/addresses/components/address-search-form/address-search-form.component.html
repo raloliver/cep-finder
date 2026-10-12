@@ -23,8 +23,10 @@
     </div>
   </div>
 
-  @if (address()) {
-    <output class="d-block text-center mt-3" [attr.for]="inputId">
+  <output class="d-block text-center mt-3" [attr.for]="inputId">
+    @if (searching()) {
+      <app-loader [label]="'addresses.search.loading' | translate" />
+    } @else if (address()) {
       <span
         animate.enter="fade-in"
         animate.leave="fade-out"
@@ -37,6 +39,6 @@
           }}
         </span>
       </span>
-    </output>
-  }
+    }
+  </output>
 </form>

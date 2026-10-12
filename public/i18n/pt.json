@@ -22,6 +22,7 @@
       "placeholder": "00000-000",
       "hint": "Digite os 8 números do CEP",
       "clear": "Limpar",
+      "loading": "Buscando endereço...",
       "errors": {
         "required": "Informe um CEP.",
         "cep": "CEP inválido. Use o formato 00000-000."
