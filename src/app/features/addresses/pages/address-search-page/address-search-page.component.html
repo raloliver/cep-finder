@@ -6,7 +6,11 @@
   </header>
 
   <section class="mb-4 p-3 p-sm-4 bg-white border rounded-3 shadow-sm">
-    <app-address-search-form [address]="address()" (searchSubmitted)="search($event)" />
+    <app-address-search-form
+      [address]="address()"
+      (searchSubmitted)="search($event)"
+      (searchCleared)="clear()"
+    />
   </section>
 
   <section class="p-3 p-sm-4 bg-white border rounded-3 shadow-sm"></section>

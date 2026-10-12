@@ -21,6 +21,7 @@
       "label": "Buscar por CEP",
       "placeholder": "00000-000",
       "hint": "Digite os 8 números do CEP",
+      "clear": "Limpar",
       "errors": {
         "required": "Informe um CEP.",
         "cep": "CEP inválido. Use o formato 00000-000."

@@ -17,6 +17,9 @@
       <app-button type="submit" class="flex-grow-1" icon="search">
         {{ 'addresses.search.submit' | translate }}
       </app-button>
+      <app-button class="flex-grow-1" type="button" icon="backspace" (click)="clear()">
+        {{ 'addresses.search.clear' | translate }}
+      </app-button>
     </div>
   </div>
 

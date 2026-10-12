@@ -16,7 +16,10 @@ import { Button } from '@shared/ui/button/button.component';
 export class AddressSearchForm {
   readonly initialCepSearch = signal<ViaCepSearch>({ cep: '' });
   readonly address = input<ViaCepResponse | null>(null);
+
   readonly searchSubmitted = output<string>();
+  readonly searchCleared = output<void>();
+
   protected readonly inputId = 'address-search-zip-code';
 
   readonly searchForm = form(this.initialCepSearch, cepSearchSchema, {
@@ -24,4 +27,9 @@ export class AddressSearchForm {
       action: async (field) => this.searchSubmitted.emit(field.cep().value()),
     },
   });
+
+  protected clear(): void {
+    this.searchForm().reset({ cep: '' });
+    this.searchCleared.emit();
+  }
 }

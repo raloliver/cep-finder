@@ -22,4 +22,9 @@ export class AddressSearchPage {
       next: (address) => this.address.set(address),
     });
   }
+
+  protected clear(): void {
+    this.searchSubscription.unsubscribe();
+    this.address.set(null);
+  }
 }
