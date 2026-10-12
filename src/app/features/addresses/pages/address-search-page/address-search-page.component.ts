@@ -19,9 +19,9 @@ export class AddressSearchPage {
   protected readonly address = signal<ViaCepResponse | null>(null);
   protected readonly searching = signal(false);
 
+  protected readonly cepSearch = inject(CepSearch);
   private readonly viaCepService = inject(ViaCep);
   private readonly notifications = inject(Notifications);
-  private readonly cepSearch = inject(CepSearch);
   private searchSubscription = Subscription.EMPTY;
   
   protected search(cep: string): void {

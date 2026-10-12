@@ -5,20 +5,21 @@ const STORAGE_KEY = 'cep-finder.searches';
 
 @Service()
 export class CepSearch {
-  private readonly list = signal<ViaCepResponse[]>(this.read());
+  private readonly searches = signal<ViaCepResponse[]>(this.read());
+  readonly addresses = this.searches.asReadonly();
 
   add(address: ViaCepResponse): ViaCepResponse {
     const cepSearch: ViaCepResponse = {
       ...address,
       data: new Date().toISOString(),
     };
-    this.save([cepSearch, ...this.list()]);
+    this.save([cepSearch, ...this.searches()]);
 
     return cepSearch;
   }
 
   remove(cep: string): void {
-    this.save(this.list().filter((address) => address.cep !== cep));
+    this.save(this.searches().filter((address) => address.cep !== cep));
   }
 
   private read(): ViaCepResponse[] {
@@ -31,7 +32,7 @@ export class CepSearch {
   }
 
   private save(addresses: ViaCepResponse[]): void {
-    this.list.set(addresses);
+    this.searches.set(addresses);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(addresses));
   }
 }

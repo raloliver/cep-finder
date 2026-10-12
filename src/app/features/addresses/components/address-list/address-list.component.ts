@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { ViaCepResponse } from '@features/addresses/interfaces/via-cep.interface';
 import { DataTable } from '@shared/ui/data-table/data-table.component';
 
 @Component({
@@ -7,4 +8,6 @@ import { DataTable } from '@shared/ui/data-table/data-table.component';
   styleUrl: './address-list.component.scss',
   templateUrl: './address-list.component.html',
 })
-export class AddressList {}
+export class AddressList {
+  readonly addresses = input.required<ViaCepResponse[]>();
+}
