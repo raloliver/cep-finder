@@ -23,7 +23,7 @@ export class AddressSearchPage {
   private readonly viaCepService = inject(ViaCep);
   private readonly notifications = inject(Notifications);
   private searchSubscription = Subscription.EMPTY;
-  
+
   protected search(cep: string): void {
     this.clear();
     this.searching.set(true);
@@ -49,5 +49,10 @@ export class AddressSearchPage {
   protected clear(): void {
     this.address.set(null);
     this.searchSubscription.unsubscribe();
+  }
+
+  protected removeAddress(address: ViaCepResponse): void {
+    this.cepSearch.remove(address.cep);
+    this.notifications.success('addresses.notifications.removed');
   }
 }
