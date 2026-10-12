@@ -7,7 +7,7 @@ import { filter, map } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { Icon } from '@shared/ui/icon/icon.component';
-import { NavItem } from './nav-menu.interface';
+import { NavItem } from '@shared/ui/nav-menu/nav-menu.interface';
 
 @Component({
   imports: [

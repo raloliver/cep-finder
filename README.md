@@ -4,9 +4,9 @@ Single page application for searching Brazilian addresses by CEP using [ViaCEP](
 
 ## Stack
 
-- Angular 22 (standalone, zoneless, lazy loaded routes)
+- Angular 22 (standalone, zoneless, animations, lazy loaded routes, signals, inject, signals forms, services decorator)
 - Angular Material 22 (wrapped in `src/app/shared/ui`)
-- Bootstrap 5 (SCSS grid, reboot and utilities)
+- Bootstrap 5 (SCSS flex, grid and utilities)
 - ngx-translate (`public/i18n/pt.json`)
 - Jest + Angular Testing Library
 

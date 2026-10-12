@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { AppPath } from '@core/navigation/app.path';
-import { AddressSearchPage } from './pages/address-search-page/address-search-page.component';
+import { AddressSearchPage } from '@features/addresses/pages/address-search-page/address-search-page.component';
 
 export const ADDRESSES_ROUTES: Routes = [
   {
