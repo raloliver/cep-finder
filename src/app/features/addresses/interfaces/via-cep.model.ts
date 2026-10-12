@@ -1,5 +1,5 @@
-import { maxLength, required, schema } from '@angular/forms/signals';
-import { CEP_LENGTH } from '@shared/helpers/cep.helper';
+import { maxLength, pattern, required, schema } from '@angular/forms/signals';
+import { CEP_LENGTH, CEP_PATTERN } from '@shared/helpers/cep.helper';
 import { ViaCepSearch } from './via-cep.interface';
 
 export class CepNotFoundError extends Error {
@@ -12,4 +12,5 @@ export class CepNotFoundError extends Error {
 export const cepSearchSchema = schema<ViaCepSearch>((path) => {
   required(path.cep, { message: 'addresses.search.errors.required' });
   maxLength(path.cep, CEP_LENGTH, { message: 'addresses.search.errors.cep' });
+  pattern(path.cep, CEP_PATTERN, { message: 'addresses.search.errors.cep' });
 });
