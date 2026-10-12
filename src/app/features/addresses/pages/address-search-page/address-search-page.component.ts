@@ -5,9 +5,10 @@ import { finalize, Subscription } from 'rxjs';
 import { ViaCepResponse } from '@features/addresses/interfaces/via-cep.interface';
 import { CepNotFoundError } from '@features/addresses/interfaces/via-cep.model';
 import { AddressSearchForm } from '@features/addresses/components/address-search-form/address-search-form.component';
-import { ViaCep } from '@features/addresses/services/via-cep.service';
 import { AddressList } from '@features/addresses/components/address-list/address-list.component';
+import { ViaCep } from '@features/addresses/services/via-cep.service';
 import { Notifications } from '@shared/ui/notification/notifications.service';
+import { CepSearch } from '@features/addresses/services/cep-search.service';
 @Component({
   imports: [TranslatePipe, AddressSearchForm, AddressList],
   selector: 'app-address-search-page',
@@ -20,8 +21,9 @@ export class AddressSearchPage {
 
   private readonly viaCepService = inject(ViaCep);
   private readonly notifications = inject(Notifications);
+  private readonly cepSearch = inject(CepSearch);
   private searchSubscription = Subscription.EMPTY;
-
+  
   protected search(cep: string): void {
     this.clear();
     this.searching.set(true);
@@ -32,6 +34,7 @@ export class AddressSearchPage {
       .subscribe({
         next: (address) => {
           this.address.set(address);
+          this.cepSearch.add(address);
           this.notifications.success('addresses.notifications.found');
         },
         error: (error: unknown) =>
