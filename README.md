@@ -25,9 +25,9 @@ Single page application for searching Brazilian addresses by CEP using [ViaCEP](
 ```
 src/
 ├── app/
-│   ├── core/          i18n, layout (header/footer), navigation, storage
+│   ├── core/          i18n, layout (header/footer), navigation
 │   ├── features/
-│   │   ├── addresses/ CEP module (lazy): services, components, pages
+│   │   ├── addresses/ CEP module (lazy): services, components, pages, storage
 │   │   └── home /     Home module (lazy)
 │   └── shared/        helpers, ui wrappers
 ├── environments/
